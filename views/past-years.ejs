@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Year Question Papers</title>
+</head>
+<body>
+    <form method="POST">
+        <label for="subjectCode">Subject Code</label>
+        <input type="text" name="subjectCode" id="subjectCode"> <br> <br>
+        <button type="submit">Submit</button>
+    </form>
+    <% if (requested) { %>
+        <h1><%= qp['subject'] %></h1>
+        <h2>CAT-1</h2>
+        <% for( let i = 0; i < qp['CAT-1'].length; i++ ) { %>
+            <a href="<%= qp['CAT-1'][i] %> ">Question Paper <%= i + 1 %> </a>
+            <br>
+        <% } %>
+        <h2>CAT-2</h2>
+        <% for( let i = 0; i < qp['CAT-2'].length; i++ ) { %>
+            <a href="<%= qp['CAT-2'][i] %> ">Question Paper <%= i + 1 %> </a>
+            <br>
+        <% } %>
+        <h2>MTT</h2>
+        <% for( let i = 0; i < qp['MTT'].length; i++ ) { %>
+            <a href="<%= qp['MTT'][i] %> ">Question Paper <%= i + 1 %> </a>
+            <br>
+        <% } %>
+        <h2>FAT</h2>
+        <% for( let i = 0; i < qp['FAT'].length; i++ ) { %>
+            <a href="<%= qp['FAT'][i] %> ">Question Paper <%= i + 1 %> </a>
+            <br>
+        <% } %>
+    <% } %>
+</body>
+</html>
