@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
 question_papers = [
     {
-        'subject': 'MAT2001 - Statistics For Engineers.',
+        'subject': 'MAT2001 - Statistics For Engineers',
         'CAT-1': [
             'https://res.cloudinary.com/tycoon/image/upload/v1576510042/z7rfgtyi3mlvbh05jlyp.pdf',
             'https://res.cloudinary.com/tycoon/image/upload/v1576598914/l5lxjvecxcgjycxmwciz.pdf',
@@ -56,6 +56,8 @@ app.get('/past-years', (req, res) => {
     });
 });
 
+var found = false;
+
 app.post('/past-years', function(req, res){
     requested = true;
     var subjectCode = req.body.subjectCode;
@@ -64,10 +66,13 @@ app.post('/past-years', function(req, res){
         const sub = element.subject.substr(0, 7);
         if(sub === subjectCode){
             index = i;
+            found = true;
             res.redirect('/past-years');
         }
     }
-    res.send('<h1>Sorry Subject not available</h1>')
+    if(!found){
+        res.send('<h1>Sorry Subject not available</h1>');
+    }
 });
 
 app.get('/:subject', function(req, res){
@@ -81,7 +86,9 @@ app.get('/:subject', function(req, res){
             res.redirect('/past-years');
         }
     }
-    res.send('<h1>Sorry Subject not available</h1>')
+    if(!found){
+        res.send('<h1>Sorry Subject not available</h1>');
+    }
 });
 
 app.listen(8080, () => console.log('Server started on port 8080.'));
