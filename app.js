@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
 question_papers = [
     {
-        'subject': 'MAT2001 - Statistics For Engineers',
+        'subject': 'MAT2001 - Statistics For Engineers.',
         'CAT-1': [
             'https://res.cloudinary.com/tycoon/image/upload/v1576510042/z7rfgtyi3mlvbh05jlyp.pdf',
             'https://res.cloudinary.com/tycoon/image/upload/v1576598914/l5lxjvecxcgjycxmwciz.pdf',
